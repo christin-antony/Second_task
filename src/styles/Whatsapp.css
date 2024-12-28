@@ -1,0 +1,13 @@
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+  }
+  
+  .whatsapp-conatainer {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+  }
+  
