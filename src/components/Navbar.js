@@ -29,9 +29,9 @@ export default function Navbar() {
               </li>
               <li>
                 <div className="dropdown">
-                  <span>
+                  <Link href="/#" className="nav-t">
                     Services <RiArrowDropDownLine className="drop-icon" />
-                  </span>
+                  </Link>
                   <div className="dropdown-content">
                     <Link href="/#" className="nav-t">
                       Services
@@ -40,15 +40,16 @@ export default function Navbar() {
                 </div>
               </li>
               <li>
+                
                 <Link href="/#" className="nav-t">
                   Company
                 </Link>
               </li>
               <li>
                 <div className="dropdown">
-                  <span>
+                  <Link href="/#" className="nav-t">
                     Destinations <RiArrowDropDownLine className="drop-icon" />
-                  </span>
+                  </Link>
                   <div className="dropdown-content">
                     <Link href="/#" className="nav-t">
                       Destinations
@@ -58,9 +59,9 @@ export default function Navbar() {
               </li>
               <li>
                 <div className="dropdown">
-                  <span>
+                  <Link href="/#" className="nav-t">
                     News & Media <RiArrowDropDownLine className="drop-icon" />
-                  </span>
+                  </Link>
                   <div className="dropdown-content">
                     <Link href="/#" className="nav-t">
                       News & Media
