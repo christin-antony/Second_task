@@ -11,6 +11,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { LuMouse } from "react-icons/lu";
 import "swiper/swiper-bundle.css";
 import { CiCalendar } from "react-icons/ci";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const destinations = [
   {
@@ -153,54 +154,6 @@ export default function Home() {
               <Link href="/">Learn More</Link>
             </div>
           </div>
-
-          {/* <div className="card-set">
-            <div className="service-card">
-              <div className="image-container">
-                <Image
-                  src="/images/yacht-transport-in-dubai.jpg"
-                  width={500}
-                  height={500}
-                  alt="Cargo ship bow view"
-                  className="set-image"
-                />
-              </div>
-              <div className="content-overlay">
-                <div className="service-number">02</div>
-                <h2 className="service-title">Transport insurance</h2>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="image-container">
-                <Image
-                  src="/images/yacht-transport-in-dubai.jpg"
-                  width={500}
-                  height={500}
-                  alt="Cargo ship bow view"
-                  className="set-image"
-                />
-              </div>
-              <div className="content-overlay">
-                <div className="service-number">02</div>
-                <h2 className="service-title">Transport insurance</h2>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="image-container">
-                <Image
-                  src="/images/yacht-transport-in-dubai.jpg"
-                  width={500}
-                  height={500}
-                  alt="Cargo ship bow view"
-                  className="set-image"
-                />
-              </div>
-              <div className="content-overlay">
-                <div className="service-number">02</div>
-                <h2 className="service-title">Transport insurance</h2>
-              </div>
-            </div>
-          </div> */}
 
           <div className="animated-image-1">
             <div className="image-container-1-1">
@@ -566,6 +519,8 @@ export default function Home() {
                 </span>
               </div>
             </div>
+
+            {/* <Link href="/"><FaArrowRightLong className="update-icon" /></Link> */}
 
             <div>
               <div className="update-small-cards">
