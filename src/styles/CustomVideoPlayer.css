@@ -1,0 +1,50 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+    
+  .play-icon {
+    width: 30px;
+    height: 30px;
+    color: white;
+    margin-left: 2px;
+  }
+  
+  .video_slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 1;
+  }
+  
+  .slider-container-dec:hover .video_slider {
+    visibility: visible;
+  }

@@ -1,12 +1,32 @@
+"use client";
+
 import "../styles/Navbar.css";
 import Link from "next/link";
 import Image from "next/image";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import React, { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="header">
-      <nav className="navbar">
+    <div className="header" >
+      <nav  className={scroll ? "navbarX" : "navbar"}>
         <div className="container-1">
           <div className="left-section">
             <Link href="/">
@@ -69,10 +89,17 @@ export default function Navbar() {
                   </div>
                 </div>
               </li>
+              <li>
+                
+                <Link href="/#" className="nav-t">
+                Contact Us
+                </Link>
+              </li>
             </ul>
 
+
             <Link href="/#" className="nav-btn">
-              Contact Us
+            Request Quote
             </Link>
           </div>
         </div>

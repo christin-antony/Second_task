@@ -1,5 +1,6 @@
 "use client";
 
+import CustomVideoPlayer from "../components/CustomVideoPlayer";
 import "../styles/Home.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,6 +13,8 @@ import { LuMouse } from "react-icons/lu";
 import "swiper/swiper-bundle.css";
 import { CiCalendar } from "react-icons/ci";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaPlay, FaPause } from "react-icons/fa";
+// import CustomVideoPlayer from "@/components/CustomVideoPlayer";
 
 const destinations = [
   {
@@ -40,6 +43,84 @@ const destinations = [
     image: "/images/transport-concept-with-boats-harbor.jpg",
     png_image: "/images/africa.png",
     mapBackground: "/images/african-curve.png",
+  },
+];
+
+const update = [
+  {
+    update_image: "/images/update-2.jpg",
+    upadte_dec: "Monaco Yacht Show",
+  },
+  {
+    update_image: "/images/update-3.jpg",
+    upadte_dec: "Helsinki International Boat Show",
+  },
+  {
+    update_image: "/images/update-4.jpg",
+    upadte_dec: "International Sailors Affairs Flensburg",
+  },
+];
+
+const slider_data = [
+  {
+    slider_logo: "/images/slider-logo.jpg",
+    slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
+    Suspendisse pharetra neque et mauris porta varius. Curabitur
+    quis maximus dui, et sodales est. Quis gravida dolor.
+    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
+    Vivamus mollis eros blandit dolor iaculis, sagittis enim
+    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
+    porta.`,
+    slider_bottom_name: "Anne Rivers",
+    department: "Co-Founder",
+  },
+  {
+    slider_logo: "/images/slider-logo.jpg",
+    slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
+    Suspendisse pharetra neque et mauris porta varius. Curabitur
+    quis maximus dui, et sodales est. Quis gravida dolor.
+    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
+    Vivamus mollis eros blandit dolor iaculis, sagittis enim
+    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
+    porta.`,
+    slider_bottom_name: "Anne Rivers",
+    department: "Co-Founder",
+  },
+  {
+    slider_logo: "/images/slider-logo.jpg",
+    slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
+    Suspendisse pharetra neque et mauris porta varius. Curabitur
+    quis maximus dui, et sodales est. Quis gravida dolor.
+    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
+    Vivamus mollis eros blandit dolor iaculis, sagittis enim
+    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
+    porta.`,
+    slider_bottom_name: "Anne Rivers",
+    department: "Co-Founder",
+  },
+  {
+    slider_logo: "/images/slider-logo.jpg",
+    slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
+    Suspendisse pharetra neque et mauris porta varius. Curabitur
+    quis maximus dui, et sodales est. Quis gravida dolor.
+    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
+    Vivamus mollis eros blandit dolor iaculis, sagittis enim
+    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
+    porta.`,
+    slider_bottom_name: "Anne Rivers",
+    department: "Co-Founder",
+  },
+  {
+    slider_logo: "/images/slider-logo.jpg",
+    slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
+    Suspendisse pharetra neque et mauris porta varius. Curabitur
+    quis maximus dui, et sodales est. Quis gravida dolor.
+    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
+    Vivamus mollis eros blandit dolor iaculis, sagittis enim
+    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
+    porta.`,
+    slider_bottom_name: "Anne Rivers",
+    department: "Co-Founder",
   },
 ];
 
@@ -77,53 +158,58 @@ export default function Home() {
       <div className="section-3">
         <div className="container-3">
           <div className="container-3-flex">
-            <div className="animated-image">
-              <div className="image-container-1">
-                <Image
-                  src="/images/shipe1.jpg"
-                  width={500}
-                  height={500}
-                  alt="Cargo ship bow view"
-                  className="animated-img-1"
-                />
-              </div>
-              <div className="image-container-2">
-                <Image
-                  src="/images/shipe2.jpg"
-                  width={500}
-                  height={500}
-                  alt="Aerial view of cargo ship"
-                  className="animated-img-2"
-                />
-              </div>
-              <div className="image-container-3">
-                <Image
-                  src="/images/shipe3.jpg"
-                  width={500}
-                  height={500}
-                  alt="Cargo ship with yachts"
-                  className="animated-img-3"
-                />
+            <div data-aos="fade-left">
+              <div className="animated-image">
+                <div className="image-container-1">
+                  <Image
+                    src="/images/shipe1.jpg"
+                    width={500}
+                    height={500}
+                    alt="Cargo ship bow view"
+                    className="animated-img-1"
+                  />
+                </div>
+                <div className="image-container-2">
+                  <Image
+                    src="/images/shipe2.jpg"
+                    width={500}
+                    height={500}
+                    alt="Aerial view of cargo ship"
+                    className="animated-img-2"
+                  />
+                </div>
+                <div className="image-container-3">
+                  <Image
+                    src="/images/shipe3.jpg"
+                    width={500}
+                    height={500}
+                    alt="Cargo ship with yachts"
+                    className="animated-img-3"
+                  />
+                </div>
               </div>
             </div>
+
             <div className="Experience-div">
-              <h1>Get Carried Away By Experience</h1>
-              <p className="Experience-div-p1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                accumsan dignissim enim, ac rhoncus nisi sagittis euismod.
-                Aenean maximus, metus nec ultricies tincidunt, enim lacus
-                finibus turpis, sed tincidunt enim erat eget ligula. Nam
-                malesuada, diam id dapibus eleifend, nunc sem vestibulum urna,
-                et lobortis quam libero vel diam.
-              </p>
-              <p className="Experience-div-p2">
-                Donec dapibus volutpat leo sed imperdiet. Donec in volutpat
-                augue. Aliquam nec libero et felis luctus tincidunt. Praesent et
-                eros et neque facilisis viverra. Quisque elementum nunc sed
-                suscipit lacinia. Etiam ac egestas quam. Donec dapibus aliquam
-                enim.
-              </p>
-              <Link href="/">Learn More</Link>
+              <div data-aos="fade-left">
+                <h1>Get Carried Away By Experience</h1>
+                <p className="Experience-div-p1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Integer accumsan dignissim enim, ac rhoncus nisi sagittis
+                  euismod. Aenean maximus, metus nec ultricies tincidunt, enim
+                  lacus finibus turpis, sed tincidunt enim erat eget ligula. Nam
+                  malesuada, diam id dapibus eleifend, nunc sem vestibulum urna,
+                  et lobortis quam libero vel diam.
+                </p>
+                <p className="Experience-div-p2">
+                  Donec dapibus volutpat leo sed imperdiet. Donec in volutpat
+                  augue. Aliquam nec libero et felis luctus tincidunt. Praesent
+                  et eros et neque facilisis viverra. Quisque elementum nunc sed
+                  suscipit lacinia. Etiam ac egestas quam. Donec dapibus aliquam
+                  enim.
+                </p>
+                <Link href="/">Learn More</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -168,9 +254,19 @@ export default function Home() {
                 />
               </div>
 
-              <div className="content-overlay">
+              <div className="content-overlayX">
                 <div className="service-number">02</div>
+              </div>
+
+              <div className="content-overlay">
                 <h2 className="service-title">Transport insurance</h2>
+                <div className="service-sub">
+                  <p>
+                    There are many different way to shipe a yacht depending on
+                    its size mainly but also weight
+                  </p>
+                  <Link href="/">Learn More</Link>
+                </div>
               </div>
             </div>
             <div className="image-container-2-1">
@@ -184,9 +280,19 @@ export default function Home() {
                 />
               </div>
 
+              <div className="content-overlayX">
+                <div className="service-number">03</div>
+              </div>
+
               <div className="content-overlay">
-                <div className="service-number">02</div>
                 <h2 className="service-title">Transport insurance</h2>
+                <div className="service-sub">
+                  <p>
+                    There are many different way to shipe a yacht depending on
+                    its size mainly but also weight
+                  </p>
+                  <Link href="/">Learn More</Link>
+                </div>
               </div>
             </div>
             <div className="image-container-3-1">
@@ -199,10 +305,19 @@ export default function Home() {
                   className="animated-img-3-1"
                 />
               </div>
+              <div className="content-overlayX">
+                <div className="service-number">04</div>
+              </div>
 
               <div className="content-overlay">
-                <div className="service-number">02</div>
                 <h2 className="service-title">Transport insurance</h2>
+                <div className="service-sub">
+                  <p>
+                    There are many different way to shipe a yacht depending on
+                    its size mainly but also weight
+                  </p>
+                  <Link href="/">Learn More</Link>
+                </div>
               </div>
             </div>
           </div>
@@ -304,7 +419,6 @@ export default function Home() {
                   className="compass"
                 />
               </div>
-
               <h1>What is Your Next Destinations</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
@@ -318,7 +432,7 @@ export default function Home() {
             <div className="key-div">
               <div className="key-div-shipe">
                 <Image
-                  src="/images/key-shipe.png"
+                  src="/images/moving_shipe.png"
                   alt="Compass"
                   width={500}
                   height={500}
@@ -389,127 +503,50 @@ export default function Home() {
               observeParents={true}
               className="custom-swiper"
             >
-              <SwiperSlide className="slider">
-                <div className="slider-container-dec">
-                  <div className="slider-logo-div">
-                    <Image
-                      src="/images/slider-logo.jpg"
-                      width={1000}
-                      height={1000}
-                      alt=""
-                      className="slider-logo"
-                    />
+              {slider_data.map((slider, index) => (
+                <SwiperSlide className="slider" key={index}>
+                  <div className="slider-container-dec">
+                    <div className="slider-logo-div">
+                      <Image
+                        src={slider.slider_logo}
+                        width={1000}
+                        height={1000}
+                        alt=""
+                        className="slider-logo"
+                      />
+                    </div>
+                    <p>{slider.slider_description}</p>
+                    <div className="slider-per-name">
+                      <h3>{slider.slider_bottom_name}</h3>
+                      <p>{slider.department}</p>
+                    </div>
+
+                    <div className="video_slider">
+                      <CustomVideoPlayer />
+                    </div>
                   </div>
-                  <p>
-                    “Lorem ipsum dolor sit amet, constetur adipiscing elit.
-                    Suspendisse pharetra neque et mauris porta varius. Curabitur
-                    quis maximus dui, et sodales est. Quis gravida dolor.
-                    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
-                    Vivamus mollis eros blandit dolor iaculis, sagittis enim
-                    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
-                    porta.”
-                  </p>
-                  <div className="slider-per-name">
-                    <h3>Anne Rivers</h3>
-                    <p>Co-Founder</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="slider">
-                <div className="slider-container-dec">
-                  <div className="slider-logo-div">
-                    <Image
-                      src="/images/slider-logo.jpg"
-                      width={1000}
-                      height={1000}
-                      alt=""
-                      className="slider-logo"
-                    />
-                  </div>
-                  <p>
-                    “Lorem ipsum dolor sit amet, constetur adipiscing elit.
-                    Suspendisse pharetra neque et mauris porta varius. Curabitur
-                    quis maximus dui, et sodales est. Quis gravida dolor.
-                    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
-                    Vivamus mollis eros blandit dolor iaculis, sagittis enim
-                    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
-                    porta.”
-                  </p>
-                  <div className="slider-per-name">
-                    <h3>Anne Rivers</h3>
-                    <p>Co-Founder</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="slider">
-                <div className="slider-container-dec">
-                  <div className="slider-logo-div">
-                    <Image
-                      src="/images/slider-logo.jpg"
-                      width={1000}
-                      height={1000}
-                      alt=""
-                      className="slider-logo"
-                    />
-                  </div>
-                  <p>
-                    “Lorem ipsum dolor sit amet, constetur adipiscing elit.
-                    Suspendisse pharetra neque et mauris porta varius. Curabitur
-                    quis maximus dui, et sodales est. Quis gravida dolor.
-                    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
-                    Vivamus mollis eros blandit dolor iaculis, sagittis enim
-                    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
-                    porta.”
-                  </p>
-                  <div className="slider-per-name">
-                    <h3>Anne Rivers</h3>
-                    <p>Co-Founder</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="slider">
-                <div className="slider-container-dec">
-                  <div className="slider-logo-div">
-                    <Image
-                      src="/images/slider-logo.jpg"
-                      width={1000}
-                      height={1000}
-                      alt=""
-                      className="slider-logo"
-                    />
-                  </div>
-                  <p>
-                    “Lorem ipsum dolor sit amet, constetur adipiscing elit.
-                    Suspendisse pharetra neque et mauris porta varius. Curabitur
-                    quis maximus dui, et sodales est. Quis gravida dolor.
-                    Pellentesque mollis ligula leo, a vehicula nisl iaculis id.
-                    Vivamus mollis eros blandit dolor iaculis, sagittis enim
-                    rhoncus. Donec lacinia eget lacus id laoreet. Suspendisse
-                    porta.”
-                  </p>
-                  <div className="slider-per-name">
-                    <h3>Anne Rivers</h3>
-                    <p>Co-Founder</p>
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
       </div>
+
       <div className="section-7">
         <div className="container-7">
           <h1 className="container-7h">Latest updates</h1>
           <div className="div-updates">
             <div className="update-big-card">
-              <div>
-                <Image
-                  src="/images/update-1.jpg"
-                  alt="Compass"
-                  width={500}
-                  height={500}
-                  className="big-card-image"
-                />
+              <div className="zoom-effect-container-updated-1">
+                <div className="image-update-card-1">
+                  <Image
+                    src="/images/update-1.jpg"
+                    alt="Compass"
+                    width={500}
+                    height={500}
+                    className="big-card-image"
+                  />
+                </div>
               </div>
               <div className="update-dec">
                 <Link href="/">Learn More</Link>
@@ -518,68 +555,36 @@ export default function Home() {
                   <CiCalendar /> Jan 24, 2024
                 </span>
               </div>
+
+              <Link href="/">
+                <FaArrowRightLong className="update-icon" />
+              </Link>
             </div>
 
-            {/* <Link href="/"><FaArrowRightLong className="update-icon" /></Link> */}
-
             <div>
-              <div className="update-small-cards">
-                <div>
-                  <Image
-                    src="/images/update-2.jpg"
-                    alt="Compass"
-                    width={500}
-                    height={500}
-                    className="sub-image"
-                  />
-                </div>
+              {update.map((item, index) => (
+                <div className="update-small-cards" key={index}>
+                  <div className="zoom-effect-container-updated-2">
+                    <div className="image-update-card-2">
+                      <Image
+                        src={item.update_image}
+                        alt="Compass"
+                        width={500}
+                        height={500}
+                        className="sub-image"
+                      />
+                    </div>
+                  </div>
 
-                <div className="update-decX">
-                  <Link href="/">Learn More</Link>
-                  <h3>Monaco Yacht Show</h3>
-                  <span>
-                    <CiCalendar /> Jan 24, 2024
-                  </span>
+                  <div className="update-decX">
+                    <Link href="/">Learn More</Link>
+                    <h3>{item.upadte_dec}</h3>
+                    <span>
+                      <CiCalendar /> Jan 24, 2024
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="update-small-cards">
-                <div>
-                  <Image
-                    src="/images/update-3.jpg"
-                    alt="Compass"
-                    width={500}
-                    height={500}
-                    className="sub-image"
-                  />
-                </div>
-
-                <div className="update-decX">
-                  <Link href="/">Learn More</Link>
-                  <h3>Helsinki International Boat Show</h3>
-                  <span>
-                    <CiCalendar /> Jan 24, 2024
-                  </span>
-                </div>
-              </div>
-              <div className="update-small-cards-X">
-                <div>
-                  <Image
-                    src="/images/update-4.jpg"
-                    alt="Compass"
-                    width={500}
-                    height={500}
-                    className="sub-image"
-                  />
-                </div>
-
-                <div className="update-decX">
-                  <Link href="/">Learn More</Link>
-                  <h3>International Sailors Affairs Flensburg</h3>
-                  <span>
-                    <CiCalendar /> Jan 24, 2024
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
