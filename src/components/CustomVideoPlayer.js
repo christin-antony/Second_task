@@ -1,8 +1,26 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
-import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
+import React, { useState, useRef } from "react";
+import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 import "../styles/CustomVideoPlayer.css";
+
+const slider_dataX = [
+  {
+    slider_video: "/images/slider-logo.jpg",
+  },
+  {
+    slider_video: "/images/slider-logo.jpg",
+  },
+  {
+    slider_video: "/images/slider-logo.jpg",
+  },
+  {
+    slider_video: "/images/slider-logo.jpg",
+  },
+  {
+    slider_video: "/images/slider-logo.jpg",
+  },
+];
 
 const CustomVideoPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -27,22 +45,27 @@ const CustomVideoPlayer = () => {
   };
 
   return (
-    <div className="video-container">
-      <video
-        ref={videoRef}
-        className="video-element"
-        onEnded={handleVideoEnd}
-        src="/video/videoplayback.mp4"
-      >
-        Your browser does not support the video tag.
-      </video>
-      
-      {showPlayButton && (
-        <button onClick={togglePlay} className="play-button">
-          <BsFillPlayFill className="play-icon" />
-        </button>
-      )}
-    </div>
+    <>
+      <div className="video-container">
+  
+          <video
+            ref={videoRef}
+            className="video-element"
+            onEnded={handleVideoEnd}
+            src="/video/videoplayback.mp4"
+            
+          >
+            Your browser does not support the video tag.
+          </video>
+
+
+        {showPlayButton && (
+          <button onClick={togglePlay} className="play-button">
+            <BsFillPlayFill className="play-icon" />
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

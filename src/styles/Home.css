@@ -20,7 +20,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(/images/pixelcut-export.jpg);
+  background-image: url(/images/new-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -50,8 +50,8 @@
 
 .ship-container {
   position: absolute;
-  bottom: -17%;
-  left: 52.3%;
+  bottom: -19.3%;
+  left: 52.4%;
   transform: translateX(-50%);
   width: 30%;
   height: 36%;
@@ -75,12 +75,11 @@ marquee {
   bottom: -5%;
   width: 100%;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(221, 221, 221, 0.39);
   opacity: 2;
   text-transform: uppercase;
   letter-spacing: 10px;
   pointer-events: none;
-  z-index: 0;
 }
 
 .div-top-h-1 {
@@ -133,35 +132,6 @@ marquee {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .div-1 h1 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-
-  .div-1 h3 {
-    font-size: 24px;
-  }
-
-  .ship-container {
-    bottom: -10%;
-  }
-}
-
-@media (max-width: 500px) {
-  .div-1 h1 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-
-  .div-1 h3 {
-    font-size: 24px;
-  }
-
-  .ship-container {
-    bottom: -15%;
-  }
-}
 
 /* page-3 */
 
@@ -172,7 +142,7 @@ marquee {
 
 .container-3 {
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -225,7 +195,7 @@ marquee {
 .animated-img-2,
 .animated-img-3 {
   width: 100%;
-  height: 100%;
+  height: 274px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -270,57 +240,53 @@ marquee {
 }
 
 .Experience-div a:hover {
-  background-color:black;
+  background-color: black;
 }
 
-/* @media (max-width: 1024px) {
-  .container-3-flex {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .animated-image,
-  .Experience-div {
-    width: 100%;
-  }
-
-  .animated-image {
-    min-width: unset;
-    height: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .animated-image {
-    height: 350px;
-  }
-
-  .image-container-1,
-  .image-container-2,
-  .image-container-3 {
-    width: 220px;
-    height: 220px;
-  }
-
-  .Experience-div h1 {
-    font-size: 2rem;
-  }
-} */
 
 /* page-4 */
+
 
 .section-4 {
   margin: 0;
   padding: 0;
   height: 920px;
   position: relative;
-  background-color: #000;
   overflow: hidden;
 }
 
-.swiper {
+.container-4 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  height: 100%;
+}
+
+.section-4 .swiper {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section-4 .swiper-pagination {
+  position: absolute;
+  bottom: 5% !important;
+  right:18.5% !important;
+  left: auto !important;
+  width: auto !important;
+  font-family: monospace;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .slider-container {
@@ -342,8 +308,12 @@ marquee {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 5%, transparent 0%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, transparent 0%);
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 1) 100%
+  );
   z-index: 1;
 }
 
@@ -384,7 +354,7 @@ marquee {
 .header-content {
   position: absolute;
   top: 10%;
-  left: 15%;
+  left: 0;
   z-index: 3;
   width: 50%;
 }
@@ -403,13 +373,14 @@ marquee {
   line-height: 1.6;
   margin-bottom: 32px;
   font-family: var(--font-lexend);
-  width: 70%;
+  /* width: 70%; */
 }
+
 
 .view-all-btn {
   position: absolute;
   top: 12%;
-  right: 15%;
+  right: 0;
   z-index: 3;
   padding: 12px 24px;
   background-color: #ff6b00;
@@ -422,14 +393,14 @@ marquee {
 }
 
 .view-all-btn:hover {
-  background-color:white;
+  background-color: white;
   color: #000;
 }
 
 .scroll-indicator {
   position: absolute;
   bottom: 10%;
-  left: 15%;
+  left: 0;
   z-index: 3;
   color: white;
   display: flex;
@@ -445,14 +416,26 @@ marquee {
   height: 20px;
 }
 
-.swiper-pagination {
-  position: absolute;
-  bottom: 5% !important;
-  right: 5% !important;
-  left: auto !important;
-  width: auto !important;
+.section-4 .swiper-pagination-fraction {
+  font-weight: bold;
   color: white;
-  font-size: 1.2rem;
+  background: transparent;
+  border-radius: 5px;
+  display: inline-block;
+  position: absolute;
+  top: 84%;
+}
+
+.section-4 .swiper-pagination-current {
+  color: white;
+  font-size: 55px !important;
+  
+}
+
+.section-4 .swiper-pagination-total {
+  color: white;
+  font-size: 25px !important;
+  
 }
 
 .africa-map {
@@ -472,55 +455,52 @@ marquee {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 400px;
-  height: 400px;
-}
-
-.map-background {
-  position: absolute;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.4;
+  height: 400px;
+  background-image: url("/images/african-curve.png");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: center;
 }
 
-.section-4-container {
+/* Additional Utility Classes */
+
+
+/* .section-4-container {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
   position: relative;
   height: 100%;
-}
+} */
 
-.swiper-pagination {
+.test {
   position: absolute;
-  bottom: 5% !important;
-  right: 5% !important;
-  left: auto !important;
-  width: auto !important;
-  font-family: monospace;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  max-width: 1200px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.swiper-pagination-current {
-  font-size: 30px;
-  font-weight: 700;
+
+
+
+.slider-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  transition: transform 0.3s ease-out;
 }
 
-.swiper-pagination-total {
-  font-size: 16px;
-  font-weight: 300;
-  opacity: 0.8;
+.slider-container.fixed-position {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
-.swiper-pagination-fraction {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
 
 /* page-5 */
 
@@ -534,7 +514,7 @@ marquee {
 .section-5 {
   background-image: url("/images/Map.png");
   background-position: left;
-  background-size: 80% 100%;
+  background-size: 76% 117%;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
@@ -571,6 +551,186 @@ marquee {
   margin-bottom: 55%;
   position: relative;
 }
+
+
+
+
+
+
+.input-wrapper {
+  /* margin-bottom: 20px; */
+}
+
+
+.label-date {
+  display: block;
+}
+
+.date-input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Input styles */
+.date-input-container input[type="date"] {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Hide default date picker icon */
+.date-input-container input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+
+.date-input-container span {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-lexend);
+  top: 35%;
+  transform: translateY(-50%);
+  color: #000000;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  border-right: 1px solid rgb(161, 161, 161) !important;
+  box-sizing: border-box;
+  padding-right: 70%;
+}
+
+
+
+.date-input-container span.hidden {
+  opacity: 0;
+}
+
+.date-input-containerX {
+  position: relative;
+  width: 100%;
+}
+
+
+.date-input-containerX input[type="date"] {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+.date-input-containerX input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+
+.date-input-containerX span {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-lexend);
+  top: 35%;
+  transform: translateY(-50%);
+  color: #000000;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  border-right: 1px solid  rgb(161, 161, 161) !important;
+  box-sizing: border-box;
+  padding-right: 75%;
+}
+
+
+
+.date-input-containerX span.hidden {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.input-wrapper {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  opacity: 0;
+}
+
+input[type="date"]:valid::-webkit-datetime-edit-fields-wrapper {
+  opacity: 1;
+}
+
+.input-wrapper input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 19px;
+  top: 35%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
+  font-size: 20px;
+}
+
+
+input[type="date"]::placeholder {
+  color: #999;
+}
+
+
+
+
+
+
+
 
 .input-date {
   width: 453px;
@@ -617,7 +777,7 @@ marquee {
   border: none;
   border-radius: 4px;
 }
-.input-date-btn:hover{
+.input-date-btn:hover {
   background-color: white;
   color: #000;
 }
@@ -650,7 +810,14 @@ marquee {
   }
 }
 
+
+
+
 /* page-6 */
+
+
+
+
 
 .section-6 {
   background-color: #f6f6f6;
@@ -698,6 +865,7 @@ marquee {
 .slider-logo-div {
   margin-bottom: 5%;
   z-index: 3;
+  position: relative;
 }
 
 .video_slider {
@@ -707,11 +875,43 @@ marquee {
   width: 100%;
   height: 100%;
   visibility: hidden;
-  z-index: 1;
+  z-index: 2; 
+  border-radius: 15px; 
+  background: rgba(0, 0, 0, 0.1);
+}
+
+
+.slider-content-wrapper {
+  position: relative;
+  z-index: 3;
+}
+
+
+.slider-container-dec:hover .video_slider {
+  visibility: visible;
+}
+
+
+.slider-container-dec:hover .slider-logo-div,
+.slider-container-dec:hover .slider-per-name {
+  position: relative;
+  z-index: 4; 
+}
+
+.slider-container-dec:hover .slider-per-name h3 {
+  color: white; 
+}
+
+.slider-container-dec:hover .slider-per-name p {
+  color: white;
 }
 
 .slider-container-dec:hover .video_slider {
   visibility: visible;
+}
+
+.slider-container-dec:hover .slider-container-dec-inner-p{
+  visibility: hidden;
 }
 
 .slider-logo {
@@ -721,7 +921,7 @@ marquee {
   object-fit: cover;
 }
 
-.slider-container-dec p {
+.slider-container-dec-inner-p {
   line-height: 30px;
   font-size: 18px;
   font-weight: 400;
@@ -729,6 +929,7 @@ marquee {
   margin-bottom: 15%;
   font-weight: 500;
   font-family: var(--font-lexend);
+  visibility: visible;
 }
 
 .slider-per-name h3 {
@@ -941,7 +1142,7 @@ marquee {
 }
 
 .our-link:hover {
-  background-color:black;
+  background-color: black;
 }
 
 .animated-image-1 {
@@ -961,12 +1162,12 @@ marquee {
   border: 1px solid #bbbbbb;
   width: 515px;
   height: 441px;
-  transition: transform 0.3s ease;
+  transition: transform 0.7s ease;
 }
 
 .image-container-1-1 {
-  left: 0%;
   top: 0%;
+  left: 0%;
   z-index: 1;
 }
 
@@ -980,29 +1181,69 @@ marquee {
   right: 0%;
   top: 0%;
   z-index: 3;
-  overflow: hidden;
+ 
+}
+
+.image-container-2-1:hover {
+
+  z-index: 4;
+}
+
+.image-container-2-1:hover ~ .image-container-3-1 {
+  transform: translateX(100px);
+}
+
+.image-container-2-1:hover ~ .image-container-1-1 {
+  transform: translateX(-100px);
+}
+
+
+.image-container-1-1:hover {
+
+  z-index: 4;
+}
+
+.image-container-1-1:hover ~ .image-container-2-1 {
+  transform: translateX(100px);
+}
+
+.image-container-1-1:hover ~ .image-container-3-1 {
+  transform: translateX(100px);
+}
+
+
+.image-container-3-1:hover {
+  z-index: 4;
+}
+
+.image-container-3-1:hover ~ .image-container-1-1 {
+  transform: translateX(-100px);
+}
+
+.image-container-3-1:hover ~ .image-container-2-1 {
+  transform: translateX(-100px);
 }
 
 .animated-img-1-1,
 .animated-img-2-1,
 .animated-img-3-1 {
   width: 100%;
-  height: 100%;
+  height: 441px;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: all 0.9s ease;
 }
 
 .content-overlay {
   position: absolute;
-  /* inset: 0; */
   bottom: -165px;
   padding: 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 5;
-  transition: transform 0.3s ease;
+  transition: all 700ms ease-in-out;
 }
+
 .content-overlayX {
   position: absolute;
   inset: 0;
@@ -1013,7 +1254,6 @@ marquee {
   z-index: 5;
 }
 .service-sub {
-  /* display: none; */
   z-index: 6;
 }
 .service-sub a {
@@ -1081,44 +1321,13 @@ marquee {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   transition: background-color 0.3s ease;
   z-index: 1;
 }
 
 .image-container-3-1:hover::after {
-  background-color: rgba(23, 179, 23, 0.5);
-}
-
-.image-container-3-1:hover .content-overlay {
-  bottom: 0px;
-}
-
-.image-container-3-1:hover .service-sub {
-  display: block;
-}
-.image-container-3-1:hover .service-title {
-  color: white;
-}
-
-.image-container-3-1:hover .service-number {
-  color: white;
-}
-
-.image-container-3-1::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-  z-index: 1;
-}
-
-.image-container-3-1:hover::after {
-  background-color: rgba(23, 179, 23, 0.5);
+  background-color: rgba(57, 128, 3, 0.9) !important;
 }
 
 .image-container-3-1:hover .content-overlay {
@@ -1143,13 +1352,13 @@ marquee {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   transition: background-color 0.3s ease;
   z-index: 1;
 }
 
 .image-container-2-1:hover::after {
-  background-color: rgba(23, 179, 23, 0.5);
+  background-color: rgba(57, 128, 3, 0.9) !important;
 }
 
 .image-container-2-1:hover .content-overlay {
@@ -1174,18 +1383,20 @@ marquee {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   transition: background-color 0.3s ease;
   z-index: 1;
+  
 }
 
-/* .image-container-1-1:hover::after {
-c
-} */
+.image-container-1-1:hover::after {
+  background-color: rgba(57, 128, 3, 0.9) !important;
+}
 
 .image-container-1-1:hover .content-overlay {
   bottom: 0px;
 }
+
 
 /* Latest updates */
 
@@ -1236,12 +1447,12 @@ c
   color: #f6f6f6;
   padding: 5px 10px;
 }
-.update-dec a:hover{
+.update-dec a:hover {
   background-color: #ffffff;
   color: black;
 }
 
-.update-decX a:hover{
+.update-decX a:hover {
   background-color: #000;
   color: #ffffff;
 }
@@ -1391,3 +1602,11 @@ c
   transition: 0.8s ease;
   object-fit: cover;
 }
+
+
+
+
+
+
+
+

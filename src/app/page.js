@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
+
 import CustomVideoPlayer from "../components/CustomVideoPlayer";
 import "../styles/Home.css";
 import Link from "next/link";
@@ -14,7 +16,7 @@ import "swiper/swiper-bundle.css";
 import { CiCalendar } from "react-icons/ci";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaPlay, FaPause } from "react-icons/fa";
-// import CustomVideoPlayer from "@/components/CustomVideoPlayer";
+import { SlCalender } from "react-icons/sl";
 
 const destinations = [
   {
@@ -75,7 +77,7 @@ const slider_data = [
     department: "Co-Founder",
   },
   {
-    slider_logo: "/images/slider-logo.jpg",
+    slider_logo: "/images/Ellipse.png",
     slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
     Suspendisse pharetra neque et mauris porta varius. Curabitur
     quis maximus dui, et sodales est. Quis gravida dolor.
@@ -87,7 +89,7 @@ const slider_data = [
     department: "Co-Founder",
   },
   {
-    slider_logo: "/images/slider-logo.jpg",
+    slider_logo: "/images/slider-logo-2.png",
     slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
     Suspendisse pharetra neque et mauris porta varius. Curabitur
     quis maximus dui, et sodales est. Quis gravida dolor.
@@ -99,7 +101,7 @@ const slider_data = [
     department: "Co-Founder",
   },
   {
-    slider_logo: "/images/slider-logo.jpg",
+    slider_logo: "/images/Ellipse.png",
     slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
     Suspendisse pharetra neque et mauris porta varius. Curabitur
     quis maximus dui, et sodales est. Quis gravida dolor.
@@ -111,7 +113,7 @@ const slider_data = [
     department: "Co-Founder",
   },
   {
-    slider_logo: "/images/slider-logo.jpg",
+    slider_logo: "/images/slider-logo-2.png",
     slider_description: `Lorem ipsum dolor sit amet, constetur adipiscing elit.
     Suspendisse pharetra neque et mauris porta varius. Curabitur
     quis maximus dui, et sodales est. Quis gravida dolor.
@@ -125,6 +127,58 @@ const slider_data = [
 ];
 
 export default function Home() {
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("From:", fromDate, "To:", toDate);
+  };
+
+  const [isSticky, setIsSticky] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const sectionRef = useRef(null);
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const scrollPosition = window.scrollY;
+      const sectionTop = scrollPosition + rect.top;
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      if (rect.top <= 0 && rect.bottom >= windowHeight) {
+        setIsSticky(true);
+
+        const scrollableDistance = sectionHeight - windowHeight;
+        const scrolled = scrollPosition - sectionTop;
+        const progress = Math.max(
+          0,
+          Math.min(1, scrolled / scrollableDistance)
+        );
+
+        const targetSlide = Math.floor(progress * destinations.length);
+
+        if (swiperRef.current && swiperRef.current.swiper) {
+          swiperRef.current.swiper.slideTo(
+            Math.min(targetSlide, destinations.length - 1)
+          );
+        }
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [destinations.length]);
+
   return (
     <div>
       <div className="home">
@@ -158,11 +212,11 @@ export default function Home() {
       <div className="section-3">
         <div className="container-3">
           <div className="container-3-flex">
-            <div data-aos="fade-left">
+            <div data-aos="fade-up-left" data-aos-duration="2000">
               <div className="animated-image">
                 <div className="image-container-1">
                   <Image
-                    src="/images/shipe1.jpg"
+                    src="/images/shi-pe-3.png"
                     width={500}
                     height={500}
                     alt="Cargo ship bow view"
@@ -171,7 +225,7 @@ export default function Home() {
                 </div>
                 <div className="image-container-2">
                   <Image
-                    src="/images/shipe2.jpg"
+                    src="/images/shi-pe-2.png"
                     width={500}
                     height={500}
                     alt="Aerial view of cargo ship"
@@ -180,7 +234,7 @@ export default function Home() {
                 </div>
                 <div className="image-container-3">
                   <Image
-                    src="/images/shipe3.jpg"
+                    src="/images/shi-pe-1.png"
                     width={500}
                     height={500}
                     alt="Cargo ship with yachts"
@@ -191,7 +245,7 @@ export default function Home() {
             </div>
 
             <div className="Experience-div">
-              <div data-aos="fade-left">
+              <div data-aos="fade-up-left" data-aos-duration="2000">
                 <h1>Get Carried Away By Experience</h1>
                 <p className="Experience-div-p1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -269,6 +323,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
             <div className="image-container-2-1">
               <div>
                 <Image
@@ -295,6 +350,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
             <div className="image-container-3-1">
               <div>
                 <Image
@@ -330,79 +386,71 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section-4">
-        <Swiper
-          pagination={{
-            type: "fraction",
-            renderFraction: (current, total) => (
-              <div className="flex items-center gap-1 font-mono">
-                <span className="text-3xl font-bold">
-                  {String(current).padStart(2, "0")}
-                </span>
-                <span className="text-base font-light opacity-80">
-                  /{total}
-                </span>
-              </div>
-            ),
-          }}
-          modules={[Pagination, Autoplay]}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-        >
-          {destinations.map((destination, index) => (
-            <SwiperSlide key={`destination-${destination.id}`}>
-              <div className="slider-container">
-                <div className="image-wrapper">
-                  <Image
-                    src={destination.image}
-                    alt={`${destination.name} - Slide ${index + 1}`}
-                    fill
-                    priority
-                    className="slider-image"
-                  />
+      <div
+        ref={sectionRef}
+        className={`section-4 ${isSticky ? "is-sticky" : ""}`}
+        style={{ height: `${100 * destinations.length}vh` }}
+      >
+        <div className={`slider-container ${isSticky ? "fixed-position" : ""}`}>
+          <Swiper
+            pagination={{
+              type: "fraction",
+            }}
+            modules={[Pagination, Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            {destinations.map((destination, index) => (
+              <SwiperSlide key={`destination-${destination.id}`}>
+                <div className="slider-container">
+                  <div className="image-wrapper">
+                    <Image
+                      src={destination.image}
+                      alt={`${destination.name} - Slide ${index + 1}`}
+                      fill
+                      priority
+                      className="slider-image"
+                    />
+                  </div>
+
+                  <div className="map-container">
+                    <Image
+                      src={destination.png_image}
+                      alt="Africa Map"
+                      width={300}
+                      height={300}
+                      className="africa-map"
+                    />
+                  </div>
+
+                  <div className="content-wrapper">
+                    <h1>{destination.name}</h1>
+                    <p>{destination.description}</p>
+                  </div>
                 </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-                <div className="map-container">
-                  <Image
-                    src={destination.mapBackground}
-                    alt="Map Background"
-                    fill
-                    className="map-background"
-                  />
-                  <Image
-                    src={destination.png_image}
-                    alt="Africa Map"
-                    width={300}
-                    height={300}
-                    className="africa-map"
-                  />
-                </div>
+          <div className="container-4">
+            <div className="header-content">
+              <h1>Destinations</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                accumsan dignissim enim, ac rhoncus nisi sagittis euismod.
+                Aenean maximus, metus nec
+              </p>
+            </div>
 
-                <div className="content-wrapper">
-                  <h1>{destination.name}</h1>
-                  <p>{destination.description}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            <button className="view-all-btn">View All Destinations</button>
 
-        <div className="header-content">
-          <h1>Destinations</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            accumsan dignissim enim, ac rhoncus nisi sagittis euismod. Aenean
-            maximus, metus nec
-          </p>
-        </div>
-
-        <button className="view-all-btn">View All Destinations</button>
-
-        <div className="scroll-indicator">
-          <span>Scroll down to view more</span>
-          <LuMouse />
+            <div className="scroll-indicator">
+              <span>Scroll down to view more</span>
+              <LuMouse />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -432,7 +480,7 @@ export default function Home() {
             <div className="key-div">
               <div className="key-div-shipe">
                 <Image
-                  src="/images/moving_shipe.png"
+                  src="/images/shipe-fullX.jpg"
                   alt="Compass"
                   width={500}
                   height={500}
@@ -441,28 +489,40 @@ export default function Home() {
               </div>
               <div className="input-date">
                 <form>
-                  <label htmlFor="dateFrom" className="label-date">
-                    Departure
-                  </label>
-                  <input
-                    type="date"
-                    id="dateFrom"
-                    name="dateFrom"
-                    placeholder="Frome:"
-                    required
-                  />
-
-                  <label htmlFor="dateTo" className="label-date">
-                    Destination
-                  </label>
-                  <input
-                    type="date"
-                    id="dateTo"
-                    name="dateTo"
-                    placeholder="To:"
-                    required
-                  />
-
+                  <div className="input-wrapper">
+                    <label htmlFor="dateFrom" className="label-date">
+                      Departure
+                    </label>
+                    <div className="date-input-container">
+                      <span className={fromDate ? "hidden" : ""}>From</span>
+                      <input
+                        type="date"
+                        id="dateFrom"
+                        name="dateFrom"
+                        value={fromDate}
+                        onChange={(e) => setFromDate(e.target.value)}
+                        required
+                      />
+                      <SlCalender className="calendar-icon" />
+                    </div>
+                  </div>
+                  <div className="input-wrapper">
+                    <label htmlFor="dateTo" className="label-date">
+                      Destination
+                    </label>
+                    <div className="date-input-containerX">
+                      <span className={toDate ? "hidden" : ""}>To</span>
+                      <input
+                        type="date"
+                        id="dateTo"
+                        name="dateTo"
+                        value={toDate}
+                        onChange={(e) => setToDate(e.target.value)}
+                        required
+                      />
+                      <SlCalender className="calendar-icon" />
+                    </div>
+                  </div>
                   <button type="submit" className="input-date-btn">
                     Get a Quote
                   </button>
@@ -485,7 +545,7 @@ export default function Home() {
             <Swiper
               modules={[Navigation, Pagination]}
               spaceBetween={30}
-              slidesPerView={2.3}
+              slidesPerView={2.5}
               navigation={{
                 enabled: true,
               }}
@@ -506,19 +566,23 @@ export default function Home() {
               {slider_data.map((slider, index) => (
                 <SwiperSlide className="slider" key={index}>
                   <div className="slider-container-dec">
-                    <div className="slider-logo-div">
-                      <Image
-                        src={slider.slider_logo}
-                        width={1000}
-                        height={1000}
-                        alt=""
-                        className="slider-logo"
-                      />
-                    </div>
-                    <p>{slider.slider_description}</p>
-                    <div className="slider-per-name">
-                      <h3>{slider.slider_bottom_name}</h3>
-                      <p>{slider.department}</p>
+                    <div className="slider-content-wrapper">
+                      <div className="slider-logo-div">
+                        <Image
+                          src={slider.slider_logo}
+                          width={1000}
+                          height={1000}
+                          alt=""
+                          className="slider-logo"
+                        />
+                      </div>
+                      <p className="slider-container-dec-inner-p">
+                        {slider.slider_description}
+                      </p>
+                      <div className="slider-per-name">
+                        <h3>{slider.slider_bottom_name}</h3>
+                        <p>{slider.department}</p>
+                      </div>
                     </div>
 
                     <div className="video_slider">
